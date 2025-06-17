@@ -83,7 +83,7 @@ if(onlinestatus=== false)
         >
           {isFiltered
             ? "List All the Restaurants Back and Remove Search/Rating Filters"
-            : "Click to Get Top Rated Restaurantsssss"}
+            : "Click to Get Top Rated Restaurants"}
         </button>
       </div>
       <div className="res-container">
