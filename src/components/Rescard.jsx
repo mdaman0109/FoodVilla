@@ -1,20 +1,30 @@
 import { CDN_URL } from "../utlis/Constants";
 
-const Rescard =(props)=>
-{
-    const {resData }= props;
-    const{cloudinaryImageId,name,cuisines,avgRating,costForTwo,deliveryTime}=resData?.info;
-return(
+const Rescard = ({ resData }) => {
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
+    resData?.info;
 
-    <div className="res-card">
-        <img className="foodlogo" src={CDN_URL+cloudinaryImageId}></img>
-        <h4>{name}</h4>
-        <h4>{cuisines.join(',')}</h4>
-        <h4>{avgRating}</h4>
-        <h4>{costForTwo}</h4>
-        <h4>{resData.info.sla.deliveryTime} mins</h4>
+  return (
+    <div className="flex flex-col h-full">
+      <img
+        className="w-full h-48 object-cover rounded-md mb-3"
+        src={CDN_URL + cloudinaryImageId}
+        alt={name}
+      />
+      <h4 className="text-lg font-semibold text-white  mu-2 mb-1 break-words line-clamp-2">
+        {name}
+      </h4>
+      <p className="text-sm text-gray-300 mb-1 break-words line-clamp-2">
+        {cuisines.join(", ")}
+      </p>
+      <div className="flex justify-between text-sm text-gray-400 mt-auto">
+        <span className="bg-green-700 text-white px-2 py-0.5 rounded">
+          ⭐ {avgRating}
+        </span>
+        <span>{costForTwo}</span>
+      </div>
     </div>
-)
-}
+  );
+};
 
 export default Rescard;

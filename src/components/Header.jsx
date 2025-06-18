@@ -9,29 +9,47 @@ const Header=()=>
     const status = useOnline()
 
     const[loginbtnreact, setloginbtnreact]=useState("Login");
-    return(
-        <div className="header">
-            <img className="logo" src= {LOGO_URL}/>
-            <div className="nav">
-                <ul>
-                <li>{status?"Online : 🟢 " : "Offline : 🔴"}</li>
-                <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                <li ><Link to="/cart">Cartt</Link></li>
-                <li ><Link to="/groceries">Groceries</Link></li>
-                <button className="Login-btn"
-                onClick={()=>
-                    loginbtnreact==="Login"
-                    ?setloginbtnreact("Logout")
-                    :setloginbtnreact("Login")
-                }>{loginbtnreact}</button>
+    return (
+  <div className="bg-[#131f2f] text-white flex justify-between items-center px-6 py-4 sticky top-0 z-50 shadow-lg shadow-cyan-950">
+    <img className="w-16 h-16 rounded-full" src={LOGO_URL} alt="logo" />
+    
+    <nav className="flex space-x-4 items-center">
+      <ul className="flex flex-wrap gap-4 items-center text-lg font-medium">
+        <li className={`text-sm ${status ? "text-green-400" : "text-red-500"}`}>
+          {status ? "Online : 🟢" : "Offline : 🔴"}
+        </li>
+        <li className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200">
+          <Link to="/about">About</Link>
+        </li>
+        <li className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200">
+          <Link to="/contact">Contact</Link>
+        </li>
+        <li className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200">
+          <Link to="/cart">Cart</Link>
+        </li>
+        <li className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200">
+          <Link to="/groceries">Groceries</Link>
+        </li>
+        <li>
+          <button
+            className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200"
+            onClick={() =>
+              loginbtnreact === "Login"
+                ? setloginbtnreact("Logout")
+                : setloginbtnreact("Login")
+            }
+          >
+            {loginbtnreact}
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+);
 
-            </ul>
-            </div>
-        </div>
-        
-    )
 }
 
 export default Header;
