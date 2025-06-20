@@ -31,7 +31,7 @@ const AppLayout = () =>
 {
     
     return(
-        <div className = "applayout">
+        <div className = " bg-gray-800 min-h-screen">
             <Header/>
             <Outlet/>
         </div>

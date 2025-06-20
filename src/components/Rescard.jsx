@@ -27,4 +27,12 @@ const Rescard = ({ resData }) => {
   );
 };
 
+
+export const withpromotedlabel = (Rescard)=>
+{
+    return (props)=>
+    {
+        return(<div><label>Promoted</label><Rescard{...props}/></div>)
+    }
+}
 export default Rescard;

@@ -1,4 +1,4 @@
-import Rescard from "./Rescard";
+import Rescard,{withpromotedlabel} from "./Rescard";
 import { useState, useEffect } from "react";
 import ShimmerCard from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ const Body = () => {
   const [isFiltered, setIsFiltered] = useState(false);
   const [SearchText, setSearchText] = useState("");
   const [searchedlistRes, setsearchedlistRes] = useState([]);
-
+  const RestaurantCardPromoted = withpromotedlabel(Rescard);
   useEffect(() => {
     fetchData();
   }, []);
@@ -51,7 +51,7 @@ const Body = () => {
       <div className="mb-6 flex flex-wrap gap-4 items-center justify-between">
         <input
           type="text"
-          className="flex-1 min-w-[200px] px-4 py-2 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 shadow-sm"
+          className="flex-1 min-w-[200px] px-4 py-2 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-3 focus:ring-cyan-500 shadow-sm"
           value={SearchText}
           onChange={(e) => setSearchText(e.target.value)}
           placeholder="Search restaurants..."
@@ -69,7 +69,7 @@ const Body = () => {
         </button>
 
         <button
-          className="px-6 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition duration-200 shadow-sm"
+          className="px-6 py-2 bg-[#131f2f] border-b-blue-100 border-spacing-x-0.5 text-white rounded-md hover:bg-gray-700 transition duration-200 shadow-sm"
           onClick={() => {
             if (!isFiltered) {
               const filteredList = searchedlistRes.filter(
@@ -90,11 +90,13 @@ const Body = () => {
       </div>
 
       
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {searchedlistRes.map((res) => (
           <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
-            <div className="bg-gray-900 text-white rounded-xl shadow-lg p-4 hover:bg-gray-800 hover:scale-105 transition-all duration-300 border border-gray-800 w-full h-[380px] flex flex-col justify-between">
-              <Rescard resData={res} />
+            <div className="bg-gray-900 text-white rounded-xl shadow-lg p-4 hover:bg-gray-800 hover:scale-105 transition-all duration-300 border border-gray-800 w-full h-[380px] flex flex-col justify-between hover:ring-3 hover:ring-emerald-500">
+             {res.info.promoted?<RestaurantCardPromoted resData={res}/> : <Rescard resData={res} />}
+              
             </div>
           </Link>
         ))}
