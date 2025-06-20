@@ -53,7 +53,15 @@ const Body = () => {
           type="text"
           className="flex-1 min-w-[200px] px-4 py-2 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-3 focus:ring-cyan-500 shadow-sm"
           value={SearchText}
-          onChange={(e) => setSearchText(e.target.value)}
+         
+          onChange={(e) => {const input = e.target.value;
+                              setSearchText(input); // update state
+
+                    const filtered = listOfRes.filter((res) =>
+                  res.info.name.toLowerCase().includes(input.toLowerCase()));
+                      setsearchedlistRes(filtered); // update filtered list
+}}
+
           placeholder="Search restaurants..."
         />
         <button
@@ -94,7 +102,7 @@ const Body = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {searchedlistRes.map((res) => (
           <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
-            <div className="bg-gray-900 text-white rounded-xl shadow-lg p-4 hover:bg-gray-800 hover:scale-105 transition-all duration-300 border border-gray-800 w-full h-[380px] flex flex-col justify-between hover:ring-3 hover:ring-emerald-500">
+            <div className="bg-gray-900 text-white rounded-xl shadow-lg p-4 hover:bg-gray-800 hover:scale-105 transition-all duration-300 border border-gray-800 w-full h-[380px] flex flex-col justify-between hover:ring-3 hover:ring-cyan-500">
              {res.info.promoted?<RestaurantCardPromoted resData={res}/> : <Rescard resData={res} />}
               
             </div>
