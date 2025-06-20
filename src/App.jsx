@@ -21,7 +21,7 @@ import RestaurantMenu from "./components/RestaurantMenu"
 import ReactDOM from "react-dom/client"
 import Header from "./components/Header"
 import Body from "./components/body"
-
+import UserNameContext from "./utlis/UserNameContext"
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom"
 import { Link } from "react-router-dom"
 import ShimmerCard from "./components/Shimmer"
@@ -31,10 +31,15 @@ const AppLayout = () =>
 {
     
     return(
+        /* Way to change our  REACT CONTEXT*/
+        <UserNameContext.Provider value={{loggedInUser : "Md Aman"}}> 
         <div className = " bg-gray-800 min-h-screen">
+            
             <Header/>
             <Outlet/>
+            
         </div>
+        </UserNameContext.Provider>
         
     )
 }

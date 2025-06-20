@@ -1,5 +1,6 @@
 
 import ShimmerCard from "./Shimmer";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utlis/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
@@ -7,7 +8,7 @@ const RestaurantMenu =()=>
 {
 
 const {resID} = useParams()
-
+const[showIndex,setshowIndex]=useState(null)
 
 
 const resinfo= useRestaurantMenu(resID) //CALLING A CUSTOM HOOK
@@ -31,7 +32,13 @@ const categories = resinfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.
             <h1 className="text-amber-100 text-center font-bold text-6xl my-10">{name}</h1>
             <h2 className="text-amber-100 text-center font-bold text-2xl m-3">{cuisines.join(",")}</h2>
             <h3 className="text-amber-100 text-center font-bold text-2xl m-3">{costForTwoMessage}</h3>
-            {categories.map((category)=> <RestaurantCategory key ={category?.card?.card?.title} data ={category?.card?.card}/>)}
+            {categories.map((category , index)=> <RestaurantCategory 
+            key ={category?.card?.card?.title} 
+            data ={category?.card?.card} 
+            visible={showIndex===index?true:false}
+        //SENDING PROPS TO CHILD OF LIFTING STATE UP
+            setshowIndex={()=>{setshowIndex(index)}}
+            />)}
             
         </div>
     )

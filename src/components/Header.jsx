@@ -2,13 +2,16 @@ import { useState } from "react";
 import { LOGO_URL } from "../utlis/Constants";
 import { Link } from "react-router-dom";
 import useOnline from "../utlis/useOnline";
-
+import UserNameContext from "../utlis/UserNameContext";
+import { useContext } from "react";
 const Header=()=>
 {
 
     const status = useOnline()
 
     const[loginbtnreact, setloginbtnreact]=useState("Login");
+    //USNIG OUT CONTEXT
+    const{loggedInUser}=useContext(UserNameContext)
     return (
   <div className="bg-[#131f2f] text-white flex justify-between items-center px-6 py-4 sticky top-0 z-50 shadow-lg shadow-cyan-950">
     <img className="w-16 h-16 rounded-full" src={LOGO_URL} alt="logo" />
@@ -45,6 +48,8 @@ const Header=()=>
             {loginbtnreact}
           </button>
         </li>
+            {loggedInUser}
+        <li></li>
       </ul>
     </nav>
   </div>
