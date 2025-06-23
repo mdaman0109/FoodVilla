@@ -25,13 +25,16 @@ import UserNameContext from "./utlis/UserNameContext"
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom"
 import { Link } from "react-router-dom"
 import ShimmerCard from "./components/Shimmer"
-
+import {Provider} from "react-redux"
+import appStore from "./utlis/appStore"
 
 const AppLayout = () =>
 {
     
     return(
-        /* Way to change our  REACT CONTEXT*/
+
+        <Provider store={appStore}>
+{/* Way to change our  REACT CONTEXT */}
         <UserNameContext.Provider value={{loggedInUser : "Md Aman"}}> 
         <div className = " bg-gray-800 min-h-screen">
             
@@ -40,6 +43,7 @@ const AppLayout = () =>
             
         </div>
         </UserNameContext.Provider>
+        </Provider>
         
     )
 }

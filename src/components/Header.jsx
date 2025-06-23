@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnline from "../utlis/useOnline";
 import UserNameContext from "../utlis/UserNameContext";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 const Header=()=>
 {
 
@@ -12,6 +13,7 @@ const Header=()=>
     const[loginbtnreact, setloginbtnreact]=useState("Login");
     //USNIG OUT CONTEXT
     const{loggedInUser}=useContext(UserNameContext)
+    const cartItems = useSelector((store)=>store.cart.items);
     return (
   <div className="bg-[#131f2f] text-white flex justify-between items-center px-6 py-4 sticky top-0 z-50 shadow-lg shadow-cyan-950">
     <img className="w-16 h-16 rounded-full" src={LOGO_URL} alt="logo" />
@@ -31,7 +33,7 @@ const Header=()=>
           <Link to="/contact">Contact</Link>
         </li>
         <li className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200">
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart">🛒({cartItems.length})</Link>
         </li>
         <li className="px-3 py-2 rounded-md hover:bg-gray-700 hover:text-cyan-400 transition duration-200">
           <Link to="/groceries">Groceries</Link>
