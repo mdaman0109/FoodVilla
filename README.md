@@ -1,12 +1,25 @@
-# React + Vite
+# 🍽️ FoodVilla
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Swiggy-inspired modern food ordering web app built with **React.js**, **Redux Toolkit**, **Tailwind CSS**, and **live API integration**. This is my personal project to learn and build scalable frontend applications with real-world features and architecture.
 
-Currently, two official plugins are available:
+## 🎬 Demo Video (Swiggy API is having issues.)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![Watch Demo](./SwiggyAPIapp/src/DemoVideo/FoodVillaThumbnail.png)](./SwiggyAPIapp/src/DemoVideo/demo.mp4)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+## 🔥 Features
+
+- ⚛️ Built with **React.js**
+- 🛒 Global state management using **Redux Toolkit**
+- ⚡ Optimized performance with **dynamic routing**, **lazy loading**, and **code splitting**
+- 🧩 Reusable & modular component architecture
+- 🧭 **React Router DOM** for seamless navigation
+- 🎨 **Tailwind CSS** for responsive & clean UI
+- 🔗 API-driven restaurant & menu data
+- 💚 Developer-friendly folder structure
+
+
+
