@@ -2,7 +2,7 @@
 
 A Swiggy-inspired modern food ordering web app built with **React.js**, **Redux Toolkit**, **Tailwind CSS**, and **live API integration**. This is my personal project to learn and build scalable frontend applications with real-world features and architecture.
 
-## 🎬 Demo Video (Swiggy API is having issues.)
+## 🎬 Demo Video (Swiggy API is having issues. Click the Thumbnail to play)
 
 [![Watch Demo](./src/DemoVideo/FoodVillaThumbnail.png)](./src/DemoVideo/FoodVilla.mp4)
 
