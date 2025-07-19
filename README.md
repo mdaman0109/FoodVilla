@@ -4,7 +4,7 @@ A Swiggy-inspired modern food ordering web app built with **React.js**, **Redux 
 
 ## 🎬 Demo Video (Swiggy API is having issues. Click the Thumbnail to play)
 
-[![Watch Demo](./src/DemoVideo/FoodVillaThumbnail.png)](./src/DemoVideo/FoodVilla.mp4)
+[![Watch Demo](./src/DemoVideo/FoodVillaThumbnail.png)](./src/DemoVideo/FoodVillaDemo.mp4)
 
 
 
