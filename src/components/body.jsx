@@ -47,7 +47,7 @@ const Body = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-4">
-      {/* Search & Filter Section */}
+      
       <div className="mb-6 flex flex-wrap gap-4 items-center justify-between">
         <input
           type="text"
@@ -55,11 +55,11 @@ const Body = () => {
           value={SearchText}
          
           onChange={(e) => {const input = e.target.value;
-                              setSearchText(input); // update state
+                              setSearchText(input); 
 
                     const filtered = listOfRes.filter((res) =>
                   res.info.name.toLowerCase().includes(input.toLowerCase()));
-                      setsearchedlistRes(filtered); // update filtered list
+                      setsearchedlistRes(filtered); 
 }}
 
           placeholder="Search restaurants..."
@@ -81,7 +81,7 @@ const Body = () => {
           onClick={() => {
             if (!isFiltered) {
               const filteredList = searchedlistRes.filter(
-                (res) => res.info.avgRating > 4.5
+                (res) => res.info.avgRating > 4
               );
               setsearchedlistRes(filteredList);
             } else {
